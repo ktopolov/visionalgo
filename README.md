@@ -15,27 +15,56 @@ First, we install the barebones dependencies:
 sudo apt install -y g++ cmake make wget unzip git python3.8
 ```
 
-Next, we get OpenCV for C++. Navigate to a desired directory. Now:
+Next, we get OpenCV for C++. For this, we also need some more dependencies:
 ```
-# Download and unpack sources
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
-unzip opencv.zip
-```
-Now, we should have an unzipped folder `.../opencv-4.x` sitting on disk. Mine is at `/home/ktopolov/repos/opencv-4.x`. First, I add a system variable to hold the OPEN_CV path:
-```
-export OPENCV_PATH="~/repos/opencv-4.x"
-```
-You can check to ensure this path has been set by using `echo $OPENCV_PATH`, which should print the path out. **Recommend adding this line to `~/.bashrc` file, to ensure this system variable always exists. The project build relies on this path existing**. 
+# Compiler
+sudo apt-get install build-essential
 
-Next, I configure and build the project using:
+# Required
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+# Optional (if one does not install, omit it and install the rest)
+sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
 ```
-# Configure
-cmake -S $OPENCV_PATH -B "${OPENCV_PATH}/build"
+
+Now, pull the latest OpenCV repo and the latest contrib repo:
+```
+cd ~/<my_working_directory>
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/opencv/opencv_contrib.git
+```
+
+Build:
+```
+# Make build folder
+cd ~/opencv
+mkdir build
+cd build
+
+# Configure project
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..
 
 # Build
-cmake --build "${OPENCV_PATH}/build"
+make -j7 # runs 7 jobs in parallel; run as many jobs as you have cores if desired
+
+# Install
+sudo make install  # this installs libraries to your machine so you can link them
 ```
-We should now see exetutables in the "${OPENCV_PATH}/build/bin" folder.
+
+To verify that install worked properly, try:
+```
+$  pkg-config opencv --cflags 
+
+# Output should be:
+-I/usr/local/include/opencv -I/usr/local/include
+
+
+$  pkg-config opencv --libs 
+
+# Output should be
+/usr/local/lib/libopencv_calib3d.so /usr/local/lib/libopencv_contrib.so /usr/local/lib/libopencv_core.so /usr/local/lib/libopencv_features2d.so /usr/local/lib/libopencv_flann.so /usr/local/lib/libopencv_gpu.so /usr/local/lib/libopencv_highgui.so /usr/local/lib/libopencv_imgproc.so /usr/local/lib/libopencv_legacy.so /usr/local/lib/libopencv_ml.so /usr/local/lib/libopencv_nonfree.so /usr/local/lib/libopencv_objdetect.so /usr/local/lib/libopencv_photo.so /usr/local/lib/libopencv_stitching.so /usr/local/lib/libopencv_ts.so /usr/local/lib/libopencv_video.so /usr/local/lib/libopencv_videostab.so
+```
+If these look good, move forward. We will test later whether OpenCV can be found by tests in our repo.
 
 ## Clone Repo
 Clone the repository with SSH using:
