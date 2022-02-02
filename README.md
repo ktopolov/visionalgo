@@ -37,6 +37,13 @@ cmake --build "${OPENCV_PATH}/build"
 ```
 We should now see exetutables in the "${OPENCV_PATH}/build/bin" folder.
 
+## Clone Repo
+Clone the repository with SSH using:
+```
+git clone git@github.com:ktopolov/visionalgo.git
+```
+This will give you a `visionalgo/` folder located at the current working directory. We will call the path to the repo `<path-to--visionalgo>`.
+
 ## Create Python Virtual Environment
 You should have installed `python 3.8` in the previous step. To ensure this was done, use `python --version`. This should print out something like:
 ```
