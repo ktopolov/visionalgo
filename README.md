@@ -3,41 +3,11 @@ Vision algorithms using computer vision and machine learning techniques. This pr
   
 # Getting Started
 ## Dependencies
-There are a few dependencies for this repo; to ensure your environment is properly setup, you must complete each of the following:
-*  [ ] Install `make, cmake, git`
-*  [ ] Install OpenCV for C++
-*  [ ] Install Python
-*  [ ] Setup Python virtual environment
-
-### Install OpenCV - C++
-Just f incorporate OpenCV to this project, I used:
+This will all be Linux-based. First, we install the barebones dependencies:
 ```
-# Install minimal prerequisites (Ubuntu 18.04 as reference)
-sudo apt update && sudo apt install -y cmake g++ wget unzip
-
-# Download and unpack sources
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
-unzip opencv.zip
-
-# Create build directory
-mkdir -p build && cd build
-
-# Configure
-cmake  ../opencv-4.x
-
-# Build
-cmake --build .
+sudo apt install -y g++ cmake make wget unzip git
 ```
 
-This repo is build around the Caffe framework. To install Caffe in Linux, use:  
-```
-sudo apt install caffe-cpu
-```  
-If you get an error saying `Unable to fetch some archives...` you may need to run `sudo apt-get update` prior to the previous line, and then run the previous line. See https://caffe.berkeleyvision.org/install_apt.html for full instructions. 
-  
-When completed, the following should be done:
-
-  
 # Building  
 The C++ portion of the project uses `CMake` to generate Makefile, and then `make` to build the project. It is useful to use the following aliases:  
   
