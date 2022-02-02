@@ -3,7 +3,14 @@ Vision algorithms using computer vision and machine learning techniques. This pr
   
 # Getting Started
 ## Dependencies
-This will all be Linux-based. First, we install the barebones dependencies:
+This will all be Linux-based. 
+```
+# Update and upgrade packages
+sudo apt-get -y update
+sudo apt-get -y upgrade
+```
+
+First, we install the barebones dependencies:
 ```
 sudo apt install -y g++ cmake make wget unzip git
 ```
