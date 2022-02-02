@@ -12,7 +12,7 @@ sudo apt-get -y upgrade
 
 First, we install the barebones dependencies:
 ```
-sudo apt install -y g++ cmake make wget unzip git
+sudo apt install -y g++ cmake make wget unzip git python3.8
 ```
 
 # Building  
