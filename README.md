@@ -26,6 +26,6 @@ cmake --build <PATH_TO_REPO>/build
 ```
 Now, you should have compiled executables located in the `<PATH_TO_REPO>/build` folder. For ease, use aliases like these:
 ```  
-alias vision_configure='cmake -S <PATH_TO_REPO>/c++ -B <PATH_TO_REPO>/build'
-alias vision_build='cmake --build <PATH_TO_REPO>/build'
+alias vision-configure='cmake -S <PATH_TO_REPO>/c++ -B <PATH_TO_REPO>/build'
+alias vision-build='cmake --build <PATH_TO_REPO>/build'
 ```  
