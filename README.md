@@ -25,7 +25,7 @@ Now, we should have an unzipped folder `.../opencv-4.x` sitting on disk. Mine is
 ```
 export OPENCV_PATH="~/repos/opencv-4.x"
 ```
-You can check to ensure this path has been set by using `echo $OPENCV_PATH`, which should print the path out. **Recommend adding this line to `~/.bashrc` file, to ensure this system variable always exists**. 
+You can check to ensure this path has been set by using `echo $OPENCV_PATH`, which should print the path out. **Recommend adding this line to `~/.bashrc` file, to ensure this system variable always exists. The project build relies on this path existing**. 
 
 Next, I configure and build the project using:
 ```
@@ -86,4 +86,4 @@ Now, you should have compiled executables located in the `<PATH_TO_REPO>/build` 
 ```  
 alias vision-configure='cmake -S <PATH_TO_REPO>/c++ -B <PATH_TO_REPO>/build'
 alias vision-build='cmake --build <PATH_TO_REPO>/build'
-```  
+``` 
