@@ -62,7 +62,7 @@ Lastly, we need a one-time install of the Python packages required for the proje
 *  Prior to installing, you should see that `pip list` shows that a very minimal list of Python packahges are installed in the environment.
 *  To install required packages, simply run (while your venv is activated):
 ```
-pip install -r requirements.txt
+pip install -r <path-to-visionalgo>/python/requirements.txt
 ```
 *  After this completes, you should be able to see that `pip list` shows all of the downloaded packages.
 
